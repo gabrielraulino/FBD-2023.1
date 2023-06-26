@@ -1,3 +1,3 @@
 INSERT INTO caixa (username, senha)
 VALUES
-('admin', 'admin123')
+('admin', 'admin123');

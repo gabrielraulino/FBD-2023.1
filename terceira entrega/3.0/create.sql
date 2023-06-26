@@ -1,4 +1,3 @@
-/* BodegaFacil_Logico3.0: */
 
 CREATE TABLE caixa (
     id SERIAL PRIMARY KEY,

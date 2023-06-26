@@ -8,12 +8,14 @@ SELECT * FROM pagamento
 SELECT * FROM vendas
 SELECT * FROM vendas_produtos
 
-
 INSERT INTO pagamento (tipo)
-VALUES('Cartão de Crédito')
+VALUES 
+('Cartão de Crédito')
+('Cartão de Débido'),
+('Dinheiro'),
+('Pix');
 
-
-
+--
 INSERT INTO vendas (subtotal, pagamento_id)
 VALUES 
 (25.88, 1)
@@ -23,4 +25,11 @@ VALUES
 (1,1,2,17.9),
 (6,1,2,7.98)
 
-DROP TRIGGER atualizar_quantidade_produto ON vendas_produtos
+UPDATE produtos
+SET quantidade = quantidade - (SELECT quantidade FROM vendas_produtos WHERE produto_id = 1 AND venda_id = 1)
+WHERE id = 1;
+
+UPDATE produtos
+SET quantidade = quantidade - (SELECT quantidade FROM vendas_produtos WHERE produto_id = 6 AND venda_id = 1)
+WHERE id = 6;
+--
